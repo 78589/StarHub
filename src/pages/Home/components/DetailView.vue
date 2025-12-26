@@ -93,7 +93,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useTagStore } from '@/stores/tag'
 import { useThemeStore } from '@/stores/theme'
 import { githubApi } from '@/api/github'
@@ -117,10 +117,7 @@ import {
   Close,
   Document,
   Link,
-  Star,
-  ForkSpoon,
-  Warning,
-  Plus
+  ForkSpoon
 } from '@element-plus/icons-vue'
 
 // 配置 marked 使用 GFM 扩展和代码高亮
@@ -222,18 +219,18 @@ const handleAddTag = async () => {
   }
 }
 
-const handleRemoveTag = async (tagId: string) => {
-  try {
-    await tagStore.removeTagFromRepo(props.repo.id, tagId)
-    await loadRepoTags()
-  } catch (error) {
-    console.error('Failed to remove tag:', error)
-  }
-}
+// const handleRemoveTag = async (tagId: string) => {
+//   try {
+//     await tagStore.removeTagFromRepo(props.repo.id, tagId)
+//     await loadRepoTags()
+//   } catch (error) {
+//     console.error('Failed to remove tag:', error)
+//   }
+// }
 
-const openInGitHub = () => {
-  window.open(props.repo.html_url, '_blank')
-}
+// const openInGitHub = () => {
+//   window.open(props.repo.html_url, '_blank')
+// }
 
 watch(
   () => props.repo,

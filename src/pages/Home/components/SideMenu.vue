@@ -478,7 +478,7 @@ const handleAutoClassify = async (reclassifyAll = false) => {
     } catch (error) {
       clearingMsg.close()
       console.error('清空标签关联失败:', error)
-      ElMessage.error('清空失败: ' + error.message)
+      ElMessage.error('清空失败: ' + (error instanceof Error ? error.message : String(error)))
       return
     }
     

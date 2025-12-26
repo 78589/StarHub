@@ -1,6 +1,5 @@
 import linkHeader from 'http-link-header'
 import qs from 'query-string'
-import type { PaginationInfo } from '@/types'
 
 export const delay = (ms: number): Promise<void> => {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -8,8 +7,8 @@ export const delay = (ms: number): Promise<void> => {
 
 export const getPageFromLinkStr = (linkStr: string): number => {
   const link = linkHeader.parse(linkStr)
-  const refs = link.get('rel', 'last')
-  if (refs.length) {
+  const refs = link.rel('last')
+  if (refs && refs.length > 0) {
     const res = qs.parseUrl(refs[0].uri)
     return Number(res.query.page) || 1
   }
@@ -84,7 +83,7 @@ export const openWindowCenter = (
     `scrollbars=yes, width=${width / systemZoom}, height=${height / systemZoom}, top=${top}, left=${left}`
   )
 
-  if (newWindow && window.focus) {
+  if (newWindow && typeof window.focus === 'function') {
     newWindow.focus()
   }
 

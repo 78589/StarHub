@@ -1020,10 +1020,6 @@ const handleClearAll = async () => {
             await db.open()
           }
           
-          const repoCount = await db.repos.count()
-          const tagCount = await db.tags.count()
-          const repoTagCount = db.repoTags ? await db.repoTags.count() : 0
-          
           // Clear all tables
           await db.repos.clear()
           await db.tags.clear()

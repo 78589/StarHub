@@ -1,12 +1,5 @@
 import { getAIConfig, DEFAULT_MODELS, DEFAULT_BASE_URLS } from '@/config/ai'
-
-export interface Repository {
-  id: number
-  name: string
-  description: string | null
-  language: string | null
-  topics: string[]
-}
+import type { Repository } from '@/types'
 
 export interface ClassificationResult {
   category: string
@@ -289,7 +282,7 @@ ${categoryList}
 只返回有效的 JSON，不要有其他文字说明。`
 
   // 准备仓库信息
-  const repoInfo = repos.map(repo => {
+  const repoInfo = repos.map((repo: Repository) => {
     const info: any = {
       id: repo.id,
       name: repo.name,

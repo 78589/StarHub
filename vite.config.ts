@@ -83,9 +83,23 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'element-plus': ['element-plus'],
-          'vue-vendor': ['vue', 'vue-router', 'pinia']
+        manualChunks(id) {
+          // 更保守的 chunk 分割策略，避免模块初始化顺序问题
+          if (id.includes('node_modules')) {
+            // 只分离 Element Plus，Vue 相关库保持在一起
+            if (id.includes('element-plus')) {
+              return 'element-plus'
+            }
+            // Vue 相关库（包括 vue、vue-router、pinia）打包在一起
+            // 这样可以确保它们按正确顺序初始化
+            if (id.includes('vue') || id.includes('pinia')) {
+              return 'vue-vendor'
+            }
+            // 其他大型库
+            if (id.includes('dexie') || id.includes('marked') || id.includes('highlight.js')) {
+              return 'libs'
+            }
+          }
         }
       }
     }

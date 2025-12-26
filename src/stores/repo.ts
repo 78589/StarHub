@@ -307,7 +307,6 @@ export const useRepoStore = defineStore('repo', {
           let remainPages = pageCount - page
           let count = remainPages >= limit ? limit : remainPages + 1
           const plist = []
-          const startPage = page
           
           while (count--) {
             plist.push(githubApi.getLoginUserStarred(100, page++))
@@ -440,8 +439,6 @@ export const useRepoStore = defineStore('repo', {
     async clearAndReload() {
       try {
         // Force stop any ongoing sync first
-        const wasSyncing = this.$state.isSyncing
-        
         // Invalidate any ongoing syncs
         this.$state.currentSyncId = 0
         this.$state.isSyncing = false

@@ -104,13 +104,8 @@ import { useRepoStore } from '@/stores/repo'
 import { AuthToken } from '@/utils/auth'
 import { githubApi } from '@/api/github'
 import { debounce } from '@/utils'
-import ElementPlus from 'element-plus'
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-import en from 'element-plus/dist/locale/en.mjs'
-
 const { t, locale } = useI18n()
 import {
-  Star,
   Search,
   Moon,
   Sunny,

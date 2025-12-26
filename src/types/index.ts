@@ -23,6 +23,7 @@ export interface Repository {
   updated_at: string
   created_at: string
   pushed_at: string
+  default_branch?: string
   owner: {
     login: string
     avatar_url: string

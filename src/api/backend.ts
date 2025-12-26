@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
 // 用于调用后端 API 的 axios 实例
 const backendHttp: AxiosInstance = axios.create({

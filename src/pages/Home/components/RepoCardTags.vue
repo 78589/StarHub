@@ -29,8 +29,7 @@
 import { ref, computed, watch, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTagStore } from '@/stores/tag'
-import type { Tag } from '@/types'
-import { Close, Check } from '@element-plus/icons-vue'
+import { Close } from '@element-plus/icons-vue'
 
 const { t } = useI18n()
 const tagStore = useTagStore()

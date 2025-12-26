@@ -213,7 +213,7 @@ export const useTagStore = defineStore('tag', {
       } catch (error) {
         console.error('Failed to update and save tags:', error)
         // If database is closed, just update state without saving
-        if (error.name === 'DatabaseClosedError') {
+        if (error instanceof Error && error.name === 'DatabaseClosedError') {
           this.$state.tags = tags
           return
         }

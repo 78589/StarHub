@@ -60,7 +60,7 @@
           <div class="tag-checkbox">
             <el-checkbox
               :model-value="selectedTagIds.includes(tag.id)"
-              @update:model-value="(val) => toggleTag(tag.id, val)"
+              @update:model-value="(val: boolean) => toggleTag(tag.id, val)"
               @click.stop
               size="large"
             />

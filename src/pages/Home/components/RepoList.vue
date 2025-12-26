@@ -104,7 +104,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import RepoCard from './RepoCard.vue'
 import BatchTagDialog from './BatchTagDialog.vue'
 import type { Repository } from '@/types'
-import { Box, Loading, Collection, Close, Check } from '@element-plus/icons-vue'
+import { Box, Collection, Close, Check } from '@element-plus/icons-vue'
 
 const props = defineProps<{
   repos: Repository[]
@@ -120,7 +120,7 @@ const emit = defineEmits<{
 const { t } = useI18n()
 const repoStore = useRepoStore()
 const tagStore = useTagStore()
-const syncProgress = computed(() => repoStore.syncProgress)
+// const syncProgress = computed(() => repoStore.syncProgress)
 
 // 批量选择相关
 const selectedRepos = ref<Set<number>>(new Set())

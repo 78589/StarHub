@@ -1,6 +1,5 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosInstance, AxiosResponse } from 'axios'
 import { AuthToken } from '@/utils/auth'
-import type { ApiResponse } from '@/types'
 
 const http: AxiosInstance = axios.create({
   baseURL: 'https://api.github.com',
