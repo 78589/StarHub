@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="StarHub - Professional GitHub Stars Management">
+  <meta name="theme-color" content="#409EFF">
+  <title>StarHub - GitHub Stars Manager</title>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    // Initialize theme before Vue app loads
+    (function() {
+      const theme = localStorage.getItem('app-theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      localStorage.setItem('app-theme', theme);
+      document.documentElement.setAttribute('data-theme', theme);
+      const themeColor = theme === 'dark' ? '#1a1a1a' : '#ffffff';
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = themeColor;
+    })();
+  </script>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
+
