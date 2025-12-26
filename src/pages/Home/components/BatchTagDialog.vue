@@ -255,6 +255,12 @@ const handleCancel = () => {
     border-radius: 0;
     color: white;
     box-shadow: 0 2px 8px rgba(64, 158, 255, 0.3);
+    
+    // 深色模式下使用品牌色
+    [data-theme='dark'] & {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%) !important;
+      box-shadow: 0 2px 8px rgba(96, 165, 250, 0.3) !important;
+    }
 
     .info-icon {
       display: flex;
@@ -392,6 +398,13 @@ const handleCancel = () => {
       background-color: rgba(64, 158, 255, 0.15);
       border-color: var(--el-color-primary);
       box-shadow: 0 2px 8px rgba(64, 158, 255, 0.2);
+      
+      // 深色模式下使用品牌色
+      [data-theme='dark'] & {
+        background-color: rgba(96, 165, 250, 0.15) !important;
+        border-color: #60a5fa !important;
+        box-shadow: 0 2px 8px rgba(96, 165, 250, 0.2) !important;
+      }
     }
 
     .tag-checkbox {

@@ -852,6 +852,12 @@ onMounted(() => {
   padding: $spacing-md;
   height: 100%;
   overflow-y: auto;
+  background: var(--bg-secondary);
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #252d3d !important;
+  }
 
   // 明亮模式按钮样式
   [data-theme='light'] & {

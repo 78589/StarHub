@@ -261,6 +261,11 @@ watch(() => themeStore.theme, () => {
   overflow-y: auto;
   background: var(--bg-primary);
   position: relative;
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #1c2333 !important;
+  }
 }
 
 .detail-content {
@@ -278,6 +283,12 @@ watch(() => themeStore.theme, () => {
   padding: 16px;
   padding-top: 12px;
   margin-bottom: 16px;
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #252d3d !important;
+    border-color: rgba(96, 165, 250, 0.2) !important;
+  }
 }
 
 .close-button {
@@ -391,6 +402,11 @@ watch(() => themeStore.theme, () => {
   border: 1px solid var(--border);
   border-radius: 4px;
   overflow: hidden;
+  
+  // 深色模式下使用与应用一致的边框色
+  [data-theme='dark'] & {
+    border-color: rgba(96, 165, 250, 0.2) !important;
+  }
 }
 
 .readme-header {
@@ -404,6 +420,12 @@ watch(() => themeStore.theme, () => {
   font-weight: 600;
   color: var(--text-primary);
   
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #252d3d !important;
+    border-bottom-color: rgba(96, 165, 250, 0.2) !important;
+  }
+  
   .el-icon {
     color: var(--text-secondary);
   }
@@ -416,6 +438,11 @@ watch(() => themeStore.theme, () => {
   min-width: 200px;
   max-width: 100%;
   background: var(--bg-primary);
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #1c2333 !important;
+  }
   
   // 徽章对齐
   :deep(p) {

@@ -6,13 +6,17 @@ export default defineConfig({
       port: 5174
     }
   },
+  ignoreDeadLinks: [
+    /^http:\/\/localhost/,
+    /^https:\/\/localhost/,
+  ],
   title: 'StarHub',
   description: '专业的 GitHub Stars 管理工具',
   lang: 'zh-CN',
   
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
-    ['meta', { name: 'theme-color', content: '#3b82f6' }],
+    ['meta', { name: 'theme-color', content: '#1c2333' }],
   ],
 
   themeConfig: {
@@ -66,8 +70,6 @@ export default defineConfig({
           text: '部署指南',
           items: [
             { text: 'Cloudflare Pages', link: '/deploy/cloudflare' },
-            { text: 'Vercel', link: '/deploy/vercel' },
-            { text: 'Docker', link: '/deploy/docker' },
             { text: '自托管', link: '/deploy/self-host' },
           ]
         }
@@ -94,7 +96,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/mengjian-github/starhub' }
+      { icon: 'github', link: 'https://github.com/hujinghaoabcd/StarHub' }
     ],
 
     footer: {
@@ -137,7 +139,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/mengjian-github/starhub/edit/main/docs/:path',
+      pattern: 'https://github.com/hujinghaoabcd/StarHub/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
     }
   }

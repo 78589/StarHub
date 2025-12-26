@@ -17,7 +17,7 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/mengjian-github/starhub.git
+git clone https://github.com/hujinghaoabcd/StarHub.git
 cd starhub
 ```
 
@@ -94,4 +94,103 @@ starhub/
 
 - [配置 GitHub OAuth](oauth.md)
 - [基础使用教程](basic.md)
+
+---
+
+# Quick Install (English)
+
+This section covers how to install and run StarHub locally.
+
+## Requirements
+
+Make sure your system meets these prerequisites:
+
+| Dependency | Minimum | Recommended |
+|------------|---------|-------------|
+| Node.js | 18.0.0 | 20.x LTS |
+| npm | 8.0.0 | 10.x |
+| Modern Browser | Chrome 90+ / Firefox 88+ / Edge 90+ | Latest |
+
+## Installation Steps
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/hujinghaoabcd/StarHub.git
+cd starhub
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+:::tip
+If installation is slow, try the China mirror:
+```bash
+npm install --registry=https://registry.npmmirror.com
+```
+:::
+
+### 3. Configure GitHub OAuth
+
+Before starting, configure GitHub OAuth. See [OAuth Setup](oauth.md).
+
+### 4. Start dev servers
+
+Run two terminals:
+
+**Terminal 1 - OAuth proxy server:**
+```bash
+node server/dev-server.js
+```
+
+**Terminal 2 - Frontend dev server:**
+```bash
+npm run dev
+```
+
+### 5. Open the app
+
+Visit: http://localhost:5173
+
+## Project Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run lint |
+| `npm run type-check` | TypeScript type check |
+
+## Directory Structure
+
+```
+starhub/
+├── public/          # Static assets
+├── src/
+│   ├── api/         # API services
+│   ├── components/  # Shared components
+│   ├── config/      # Config files
+│   ├── db/          # IndexedDB definitions
+│   ├── i18n/        # Internationalization
+│   ├── layouts/     # Layout components
+│   ├── pages/       # Page components
+│   ├── router/      # Router config
+│   ├── services/    # Business services
+│   ├── stores/      # State management (Pinia)
+│   ├── styles/      # Global styles
+│   ├── types/       # Type definitions
+│   └── utils/       # Utilities
+├── server/          # Dev server
+├── functions/       # Cloudflare Workers
+└── docs/            # Documentation
+```
+
+## Next Steps
+
+- [Configure GitHub OAuth](oauth.md)
+- [Basic Usage Guide](basic.md)
 

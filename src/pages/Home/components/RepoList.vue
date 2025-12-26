@@ -328,6 +328,12 @@ const handleSizeChange = (size: number) => {
   background: var(--bg-primary);
   border-right: 1px solid var(--border);
 
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #1c2333 !important;
+    border-right-color: rgba(96, 165, 250, 0.2) !important;
+  }
+
   @media (max-width: 1200px) {
     width: 420px;
   }
@@ -351,6 +357,12 @@ const handleSizeChange = (size: number) => {
   align-items: center;
   justify-content: space-between;
   min-height: 56px;
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #252d3d !important;
+    border-bottom-color: rgba(96, 165, 250, 0.2) !important;
+  }
   
   .header-left {
     display: flex;
@@ -445,6 +457,12 @@ const handleSizeChange = (size: number) => {
   align-items: center;
   overflow-x: auto;
   overflow-y: hidden;
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #252d3d !important;
+    border-top-color: rgba(96, 165, 250, 0.2) !important;
+  }
   
   :deep(.el-pagination) {
     display: flex;

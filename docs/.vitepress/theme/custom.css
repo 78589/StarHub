@@ -25,13 +25,18 @@
   --vp-c-bg-elv: #2e3847;
   --vp-c-bg-soft: #252d3d;
   
+  /* 文本颜色 - 与应用一致 */
+  --vp-c-text-1: #e8e8e8;
+  --vp-c-text-2: #b8b8b8;
+  --vp-c-text-3: #888888;
+  
   /* 导航栏和侧边栏 */
   --vp-nav-bg-color: rgba(28, 35, 51, 0.95);
   --vp-sidebar-bg-color: #1c2333;
   
-  /* 边框色 */
-  --vp-c-divider: rgba(96, 165, 250, 0.15);
-  --vp-c-gutter: rgba(96, 165, 250, 0.1);
+  /* 边框色 - 与应用一致 */
+  --vp-c-divider: rgba(96, 165, 250, 0.2);
+  --vp-c-gutter: rgba(96, 165, 250, 0.15);
   
   /* Hero 区域 */
   --vp-home-hero-image-background-image: linear-gradient(135deg, #60a5fa 30%, #3b82f6 70%);
@@ -95,14 +100,33 @@
 /* 提示框样式 */
 .vp-doc .tip {
   border-color: var(--vp-c-brand-1);
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.dark .vp-doc .tip {
+  background: #252d3d !important;
+  border-color: #60a5fa !important;
+  color: #e8e8e8 !important;
 }
 
 .vp-doc .warning {
   border-color: #f59e0b;
 }
 
+.dark .vp-doc .warning {
+  background: #252d3d !important;
+  border-color: #f59e0b !important;
+  color: #e8e8e8 !important;
+}
+
 .vp-doc .danger {
   border-color: #ef4444;
+}
+
+.dark .vp-doc .danger {
+  background: #252d3d !important;
+  border-color: #ef4444 !important;
+  color: #e8e8e8 !important;
 }
 
 /* 导航栏 Logo */
@@ -174,30 +198,69 @@
 }
 
 .dark .VPFeature {
-  background: rgba(37, 45, 61, 0.5);
-  border-color: rgba(96, 165, 250, 0.2);
+  background: #252d3d !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+  color: #e8e8e8 !important;
 }
 
 .dark .VPFeature:hover {
-  border-color: #60a5fa;
+  background: #2e3847 !important;
+  border-color: #60a5fa !important;
   box-shadow: 0 8px 32px rgba(96, 165, 250, 0.25);
 }
 
+.dark .VPFeature .title {
+  color: #e8e8e8 !important;
+}
+
+.dark .VPFeature .details {
+  color: #b8b8b8 !important;
+}
+
 .dark .vp-doc th {
-  background: rgba(37, 45, 61, 0.5);
+  background: #252d3d !important;
+  color: #e8e8e8 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark .vp-doc td {
+  background: #1c2333 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+  color: #e8e8e8 !important;
 }
 
 .dark .vp-doc tr:nth-child(even) td {
-  background: rgba(30, 38, 52, 0.3);
+  background: #252d3d !important;
 }
 
-/* 深色模式代码块 */
+.dark .vp-doc tr:hover td {
+  background: #2e3847 !important;
+}
+
+/* 深色模式代码块 - 与应用对话框颜色一致 */
 .dark .vp-code-group {
-  background: rgba(28, 35, 51, 0.8);
+  background: #1c2333 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
 }
 
 .dark div[class*='language-'] {
-  background: rgba(28, 35, 51, 0.9) !important;
+  background: #1c2333 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark .vp-code-group .tabs {
+  background: #1c2333 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark .vp-code-group .tabs label {
+  color: #e8e8e8 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark .vp-code-group .tabs label.active {
+  background: #252d3d !important;
+  color: #60a5fa !important;
 }
 
 /* 星空特效 - 仅首页（通过 VitePress 的首页类名） */
@@ -303,6 +366,81 @@
 .VPHome .VPContent > * {
   position: relative;
   z-index: 1;
+}
+
+/* 深色模式下拉菜单和选择器 */
+.dark .VPDocSearch {
+  background: #252d3d !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark .VPDocSearch input {
+  background: #1c2333 !important;
+  color: #e8e8e8 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+}
+
+.dark .VPDocSearch input::placeholder {
+  color: #888888 !important;
+}
+
+/* 深色模式按钮 */
+.dark .vp-button {
+  background: #252d3d !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+  color: #e8e8e8 !important;
+}
+
+.dark .vp-button:hover {
+  background: #2e3847 !important;
+  border-color: #60a5fa !important;
+  color: #60a5fa !important;
+}
+
+.dark .vp-button.primary {
+  background: #60a5fa !important;
+  border-color: #60a5fa !important;
+  color: #fff !important;
+}
+
+.dark .vp-button.primary:hover {
+  background: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+}
+
+/* 深色模式输入框 */
+.dark input,
+.dark textarea {
+  background: #1c2333 !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
+  color: #e8e8e8 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #888888 !important;
+}
+
+.dark input:focus,
+.dark textarea:focus {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.2) !important;
+}
+
+/* 深色模式链接 */
+.dark a {
+  color: #60a5fa !important;
+}
+
+.dark a:hover {
+  color: #93c5fd !important;
+}
+
+/* 深色模式代码内联 */
+.dark code:not(pre code) {
+  background: #252d3d !important;
+  color: #60a5fa !important;
+  border-color: rgba(96, 165, 250, 0.2) !important;
 }
 
 /* 响应式调整 */

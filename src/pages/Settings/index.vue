@@ -1138,12 +1138,23 @@ const handleClearAll = async () => {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-primary);
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background-color: #1c2333 !important;
+  }
 }
 
 .settings-header {
   padding: 24px 32px;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-secondary);
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background-color: #252d3d !important;
+    border-bottom-color: rgba(96, 165, 250, 0.2) !important;
+  }
 
   h1 {
     margin: 0;
@@ -1163,16 +1174,33 @@ const handleClearAll = async () => {
   max-width: 800px;
   background-color: var(--bg-primary) !important;
   border-color: var(--border) !important;
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background-color: #252d3d !important;
+    border-color: rgba(96, 165, 250, 0.2) !important;
+  }
 
   :deep(.el-card__header) {
     background-color: var(--bg-secondary) !important;
     border-bottom-color: var(--border) !important;
     color: var(--text-primary) !important;
+    
+    // 深色模式下使用与应用一致的背景色
+    [data-theme='dark'] & {
+      background-color: #252d3d !important;
+      border-bottom-color: rgba(96, 165, 250, 0.2) !important;
+    }
   }
   
   :deep(.el-card__body) {
     background-color: var(--bg-primary) !important;
     color: var(--text-primary) !important;
+    
+    // 深色模式下使用与应用一致的背景色
+    [data-theme='dark'] & {
+      background-color: #252d3d !important;
+    }
   }
 
   .card-header {
@@ -1308,10 +1336,22 @@ const handleClearAll = async () => {
     transition: all 0.3s ease;
     animation: fadeIn 0.3s ease;
     
+    // 深色模式下使用与应用一致的背景色
+    [data-theme='dark'] & {
+      background: #252d3d !important;
+      border-color: rgba(96, 165, 250, 0.2) !important;
+    }
+    
     &:hover {
       border-color: var(--el-color-primary);
       transform: translateY(-2px);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      
+      // 深色模式下使用品牌色边框
+      [data-theme='dark'] & {
+        border-color: #60a5fa !important;
+        box-shadow: 0 2px 8px rgba(96, 165, 250, 0.2) !important;
+      }
     }
   }
   

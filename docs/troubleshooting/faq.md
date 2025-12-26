@@ -124,7 +124,7 @@
 
 - StarHub 数据存储在本地浏览器
 - 更换浏览器需要重新登录同步
-- 目前不支持数据导出/导入
+- 支持数据导出/导入
 
 ---
 
@@ -173,7 +173,7 @@
 
 ### Q: 如何反馈 Bug？
 
-**A:** 请在 [GitHub Issues](https://github.com/mengjian-github/starhub/issues) 提交，描述问题和复现步骤。
+**A:** 请在 [GitHub Issues](https://github.com/hujinghaoabcd/StarHub/issues) 提交，描述问题和复现步骤。
 
 ---
 

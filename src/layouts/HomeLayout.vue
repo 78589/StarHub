@@ -464,6 +464,12 @@ onMounted(async () => {
   border-right: 1px solid var(--border);
   overflow-y: auto;
 
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #252d3d !important;
+    border-right-color: rgba(96, 165, 250, 0.2) !important;
+  }
+
   @media (max-width: 1024px) {
     width: 240px;
   }
@@ -487,6 +493,12 @@ onMounted(async () => {
   flex: 1;
   overflow: hidden;
   position: relative;
+  background: var(--bg-primary);
+  
+  // 深色模式下使用与应用一致的背景色
+  [data-theme='dark'] & {
+    background: #1c2333 !important;
+  }
 }
 </style>
 

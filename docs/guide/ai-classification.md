@@ -4,6 +4,7 @@ StarHub 支持使用 AI 自动为你的 GitHub Stars 分类，大大节省手动
 
 ## 功能概述
 
+
 AI 智能分类会分析每个仓库的：
 
 - 仓库名称
@@ -26,6 +27,10 @@ AI 智能分类会分析每个仓库的：
 
 ## 配置 AI 服务
 
+<p align="center">
+  <img src="../public/screenshot-ai-classification.png" alt="AI 分类" style="max-width: 400px; width: 100%;" />
+</p>
+
 ### 步骤 1：获取 API Key
 
 选择一个 AI 服务，获取 API Key：
@@ -46,6 +51,10 @@ AI 智能分类会分析每个仓库的：
 3. 点击 **保存**
 
 ## 使用 AI 分类
+
+<p align="center">
+  <img src="../public/screenshot-ai-classification-mode.png" alt="AI 分类模式" style="max-width: 400px; width: 100%;" />
+</p>
 
 ### 触发分类
 
@@ -84,6 +93,10 @@ AI 智能分类会分析每个仓库的：
 :::
 
 ### 读取 README
+
+<p align="center">
+  <img src="../public/screenshot-ai-classification-readme.png" alt="AI 分类 README" style="max-width: 400px; width: 100%;" />
+</p>
 
 开启后，AI 会读取仓库的 README 进行分类：
 

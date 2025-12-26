@@ -6,7 +6,7 @@
 
 ### 报告 Bug
 
-1. 搜索 [Issues](https://github.com/mengjian-github/starhub/issues) 确认没有重复
+1. 搜索 [Issues](https://github.com/hujinghaoabcd/StarHub/issues) 确认没有重复
 2. 创建新 Issue，使用 Bug 报告模板
 3. 提供详细的复现步骤
 
@@ -37,7 +37,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/mengjian-github/starhub.git
+git clone https://github.com/hujinghaoabcd/StarHub.git
 cd starhub
 
 # 安装依赖

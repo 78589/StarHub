@@ -20,26 +20,15 @@
 
 ## 创建标签
 
-### 方法 1：从侧边栏创建
+<p align="center">
+  <img src="../public/screenshot-create-tag.png" alt="创建标签" style="max-width: 400px; width: 100%;" />
+</p>
 
 1. 点击左侧标签区域的 **+** 按钮
 2. 输入标签名称
 3. 选择 Emoji 和颜色
 4. 点击 **创建**
 
-### 方法 2：添加标签时创建
-
-1. 选中一个仓库
-2. 在详情面板点击 **添加标签**
-3. 输入新标签名称
-4. 点击 **创建并添加**
-
-## 编辑标签
-
-1. 在左侧标签列表中，悬停在标签上
-2. 点击 **编辑** 图标 (✏️)
-3. 修改名称、Emoji 或颜色
-4. 点击 **保存**
 
 ## 删除标签
 
@@ -55,11 +44,19 @@
 
 ### 单个仓库
 
+<p align="center">
+  <img src="../public/screenshot-add-tag.png" alt="批量添加标签" style="max-width: 400px; width: 100%;" />
+</p>
+
 1. 点击仓库，打开详情面板
 2. 在标签区域点击 **+**
 3. 选择已有标签或创建新标签
 
 ### 批量添加
+
+<p align="center">
+  <img src="../public/screenshot-batch-add-tag.png" alt="批量添加标签" style="max-width: 400px; width: 100%;" />
+</p>
 
 1. 点击仓库列表顶部的 **选择** 按钮
 2. 勾选要操作的仓库
@@ -92,6 +89,10 @@
 
 ## 预设标签
 
+<p align="center">
+  <img src="../public/screenshot-preset-tags.png" alt="预设标签" style="max-width: 400px; width: 100%;" />
+</p>
+
 StarHub 内置 18 种预设标签模板：
 
 | 标签 | Emoji | 颜色 | 适用场景 |
@@ -112,7 +113,7 @@ StarHub 内置 18 种预设标签模板：
 | 测试 | 🧪 | #4caf50 | 测试框架 |
 | Awesome | 😎 | #ff6b6b | 资源列表 |
 | Node.js | 🟢 | #339933 | Node 生态 |
-| React | ⚛️ | #61dafb | React 生态 |
+| Vue | 🟩 | #41b883 | Vue 项目与插件 |
 | 其他 | 📦 | #9e9e9e | 未分类 |
 
 ## 标签最佳实践
