@@ -18,7 +18,7 @@
           {{ currentLanguage === 'zh' ? '文档' : 'Docs' }}
         </a>
         <span class="nav-divider">|</span>
-        <a href="https://github.com/mengjian-github/starhub" target="_blank" class="nav-link">
+        <a href="https://github.com/hujinghaoabcd/StarHub" target="_blank" class="nav-link">
           GitHub
         </a>
         <span class="nav-divider">|</span>
@@ -55,7 +55,7 @@
               {{ currentLanguage === 'zh' ? '使用 GitHub 登录' : 'Sign in with GitHub' }}
           </el-button>
 
-            <a href="https://github.com/mengjian-github/starhub" target="_blank" class="github-link">
+            <a href="https://github.com/hujinghaoabcd/StarHub" target="_blank" class="github-link">
               <el-icon :size="20"><Link /></el-icon>
               {{ currentLanguage === 'zh' ? '查看源码' : 'View on GitHub' }}
             </a>
@@ -147,7 +147,7 @@
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
                 </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '仓库列表' : 'Repo List' }}</div>
+                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '登录界面' : 'Login Interface' }}</div>
               </div>
               <div style="padding: 0; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6)); line-height: 0;">
                 <img src="/screenshot-01.png" alt="Repos" style="height: 500px; width: auto;" />
@@ -160,7 +160,7 @@
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
                 </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '标签管理' : 'Tags' }}</div>
+                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '主界面' : 'Main Interface' }}</div>
               </div>
               <div style="padding: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6));">
                 <img src="/screenshot-02.png" alt="Tags" style="display: block; width: auto; height: 500px;" />
@@ -173,23 +173,10 @@
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
                 </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? 'AI 分类' : 'AI' }}</div>
+                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '用户指南' : 'User Guide' }}</div>
               </div>
               <div style="padding: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6));">
                 <img src="/screenshot-03.png" alt="AI" style="display: block; width: auto; height: 500px;" />
-              </div>
-            </div>
-            <div class="preview-card" style="flex-shrink: 0; background: rgba(26, 31, 53, 0.95); border: 1px solid rgba(96, 165, 250, 0.3); overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); width: fit-content;">
-              <div style="height: 32px; background: #1a1f35; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 12px; gap: 8px;">
-                <div style="display: flex; gap: 6px;">
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
-                </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">README</div>
-              </div>
-              <div style="padding: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6));">
-                <img src="/screenshot-04.png" alt="README" style="display: block; width: auto; height: 500px;" />
               </div>
             </div>
             <!-- 复制一组实现无缝循环 -->
@@ -200,7 +187,7 @@
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
                 </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '仓库列表' : 'Repo List' }}</div>
+                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '登录界面' : 'Login Interface' }}</div>
               </div>
               <div style="padding: 0; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6)); line-height: 0;">
                 <img src="/screenshot-01.png" alt="Repos" style="height: 500px; width: auto;" />
@@ -213,7 +200,7 @@
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
                 </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '标签管理' : 'Tags' }}</div>
+                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '主界面' : 'Main Interface' }}</div>
               </div>
               <div style="padding: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6));">
                 <img src="/screenshot-02.png" alt="Tags" style="display: block; width: auto; height: 500px;" />
@@ -226,23 +213,10 @@
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
                   <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
                 </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? 'AI 分类' : 'AI' }}</div>
+                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">{{ currentLanguage === 'zh' ? '用户指南' : 'User Guide' }}</div>
               </div>
               <div style="padding: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6));">
                 <img src="/screenshot-03.png" alt="AI" style="display: block; width: auto; height: 500px;" />
-              </div>
-            </div>
-            <div class="preview-card" style="flex-shrink: 0; background: rgba(26, 31, 53, 0.95); border: 1px solid rgba(96, 165, 250, 0.3); overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); width: fit-content;">
-              <div style="height: 32px; background: #1a1f35; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 12px; gap: 8px;">
-                <div style="display: flex; gap: 6px;">
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
-                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
-                </div>
-                <div style="color: rgba(255,255,255,0.6); font-size: 0.7rem; flex: 1; text-align: center; padding-right: 40px;">README</div>
-              </div>
-              <div style="padding: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(45, 53, 97, 0.4), rgba(26, 31, 53, 0.6));">
-                <img src="/screenshot-04.png" alt="README" style="display: block; width: auto; height: 500px;" />
               </div>
             </div>
           </div>
