@@ -83,9 +83,13 @@
       </div>
     </div>
     <div class="layout-body">
-      <aside class="layout-sidebar">
+      <aside class="layout-sidebar" :style="{ width: sidebarWidth + 'px' }">
         <slot name="sidebar" />
       </aside>
+      <div 
+        class="resize-handle"
+        @mousedown="startResize"
+      ></div>
       <main class="layout-main">
         <slot name="main" />
       </main>
@@ -128,6 +132,32 @@ const theme = computed(() => themeStore.theme)
 const currentLanguage = computed(() => themeStore.language)
 const syncing = computed(() => repoStore.isSyncing)
 const syncProgress = computed(() => repoStore.syncProgress)
+
+// 侧边栏宽度调整
+const sidebarWidth = ref(320)
+const isResizing = ref(false)
+
+const startResize = (e: MouseEvent) => {
+  isResizing.value = true
+  document.addEventListener('mousemove', handleResize)
+  document.addEventListener('mouseup', stopResize)
+  e.preventDefault()
+}
+
+const handleResize = (e: MouseEvent) => {
+  if (!isResizing.value) return
+  const newWidth = e.clientX
+  // 限制最小宽度 200px，最大宽度 600px
+  if (newWidth >= 200 && newWidth <= 600) {
+    sidebarWidth.value = newWidth
+  }
+}
+
+const stopResize = () => {
+  isResizing.value = false
+  document.removeEventListener('mousemove', handleResize)
+  document.removeEventListener('mouseup', stopResize)
+}
 
 const handleSearch = debounce((value: string) => {
   repoStore.setSearchQuery(value)
@@ -454,19 +484,16 @@ onMounted(async () => {
 }
 
 .layout-sidebar {
-  width: 280px;
+  min-width: 200px;
+  max-width: 600px;
   background: var(--bg-secondary);
-  border-right: 1px solid var(--border);
+  border-right: none;
   overflow-y: auto;
+  flex-shrink: 0;
 
   // 深色模式下使用与应用一致的背景色
   [data-theme='dark'] & {
     background: #252d3d !important;
-    border-right-color: rgba(96, 165, 250, 0.2) !important;
-  }
-
-  @media (max-width: 1024px) {
-    width: 240px;
   }
 
   @media (max-width: 768px) {
@@ -481,6 +508,40 @@ onMounted(async () => {
     &.open {
       transform: translateX(0);
     }
+  }
+}
+
+.resize-handle {
+  width: 4px;
+  background: var(--border);
+  cursor: col-resize;
+  flex-shrink: 0;
+  transition: background-color $transition-base;
+  position: relative;
+
+  &:hover {
+    background: var(--el-color-primary);
+  }
+
+  &:active {
+    background: var(--el-color-primary);
+  }
+
+  // 深色模式下的样式
+  [data-theme='dark'] & {
+    background: rgba(96, 165, 250, 0.2);
+    
+    &:hover {
+      background: rgba(96, 165, 250, 0.5);
+    }
+    
+    &:active {
+      background: rgba(96, 165, 250, 0.7);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 

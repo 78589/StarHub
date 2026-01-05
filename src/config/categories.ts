@@ -10,6 +10,358 @@ export interface CategoryPreset {
 }
 
 // 默认预设分类
+
+
+// export const DEFAULT_CATEGORIES: CategoryPreset[] = [
+//   {
+//     name: 'Python 开发生态',
+//     nameEn: 'Python Ecosystem',
+//     emoji: '🐍',
+//     description: '与 Python 语言、生态和脚本相关的项目',
+//     descriptionEn: 'Projects related to Python language and ecosystem',
+//     color: '#3572A5',
+//     keywords: ['python','pandas','numpy','jupyter','script','automation','cli','package','library','data']
+//   },
+//   {
+//     name: '前端开发',
+//     nameEn: 'Frontend Development',
+//     emoji: '🌐',
+//     description: '网页前端开发与页面交互',
+//     descriptionEn: 'Frontend development and UI interaction',
+//     color: '#1E90FF',
+//     keywords: ['frontend','html','css','javascript','react','vue','vite','dom','spa','components']
+//   },
+//   {
+//     name: '用户界面组件',
+//     nameEn: 'User Interface Components',
+//     emoji: '🎨',
+//     description: '界面组件与设计系统',
+//     descriptionEn: 'UI components and design systems',
+//     color: '#FFB000',
+//     keywords: ['ui','component','widget','theme','icons','design','layout','dashboard','controls','navigation']
+//   },
+//   {
+//     name: '深度学习',
+//     nameEn: 'Deep Learning',
+//     emoji: '🧠',
+//     description: '神经网络、模型训练与推理相关项目',
+//     descriptionEn: 'Neural networks, model training and inference',
+//     color: '#7C4DFF',
+//     keywords: [
+//       'deep-learning','neural-network','dl','pytorch','tensorflow',
+//       'model','training','inference','cnn','rnn','transformer'
+//     ]
+//   },
+//   {
+//     name: '博客与知识分享',
+//     nameEn: 'Blogs & Knowledge Sharing',
+//     emoji: '✍️',
+//     description: '博客与知识记录',
+//     descriptionEn: 'Blogs and knowledge sharing',
+//     color: '#FF7F50',
+//     keywords: ['blog','markdown','post','article','cms','static','jekyll','hugo','content','publish']
+//   },
+//   {
+//     name: '科学绘图与可视化',
+//     nameEn: 'Scientific Plotting & Charts',
+//     emoji: '📊',
+//     description: '科研绘图与图表',
+//     descriptionEn: 'Scientific plotting and charts',
+//     color: '#4CAF50',
+//     keywords: ['plot','chart','matplotlib','seaborn','figure','graph','heatmap','axis','legend','render']
+//   },
+//   {
+//     name: '课程与学习资料',
+//     nameEn: 'Courses & Learning Materials',
+//     emoji: '🎓',
+//     description: '教程与学习资源',
+//     descriptionEn: 'Courses and learning materials',
+//     color: '#2E8B57',
+//     keywords: ['course','tutorial','lesson','training','lecture','assignment','study','education','slides','examples']
+//   },
+//   {
+//     name: 'Django 框架',
+//     nameEn: 'Django Framework',
+//     emoji: '🕸️',
+//     description: 'Django 相关项目',
+//     descriptionEn: 'Django related projects',
+//     color: '#092E20',
+//     keywords: ['django','orm','admin',' template','rest','middleware','forms','backend','routing','serializer']
+//   },
+//   {
+//     name: '文档与手册',
+//     nameEn: 'Documentation & Manuals',
+//     emoji: '📚',
+//     description: '项目说明与文档系统',
+//     descriptionEn: 'Documentation and manuals',
+//     color: '#795548',
+//     keywords: ['docs','documentation','manual','guide','readme','reference','usage','wiki','markdown','help']
+//   },
+//   {
+//     name: '其他项目',
+//     nameEn: 'Miscellaneous Projects',
+//     emoji: '📦',
+//     description: '暂无法分类的项目',
+//     descriptionEn: 'Uncategorized projects',
+//     color: '#A9A9A9',
+//     keywords: ['misc','general','random','mixed','prototype','test','sandbox','toolkit','various','experiment']
+//   },
+//   {
+//     name: '项目模板',
+//     nameEn: 'Project Templates',
+//     emoji: '🧩',
+//     description: '脚手架与模板工程',
+//     descriptionEn: 'Project starters and templates',
+//     color: '#8A2BE2',
+//     keywords: ['template','starter','scaffold','boilerplate','seed','structure','init','setup','example','base']
+//   },
+//   {
+//     name: '后台管理系统',
+//     nameEn: 'Admin Dashboards',
+//     emoji: '🛠️',
+//     description: '管理后台与控制台',
+//     descriptionEn: 'Admin panels and dashboards',
+//     color: '#FF6347',
+//     keywords: ['admin','dashboard','panel','crud','management','analytics','settings','roles','table','monitor']
+//   },
+//   {
+//     name: '代码手册与示例',
+//     nameEn: 'Code Cookbooks',
+//     emoji: '🍳',
+//     description: '代码示例与经验集合',
+//     descriptionEn: 'Code recipes and examples',
+//     color: '#9C27B0',
+//     keywords: ['cookbook','snippet','example','recipe','tips','pattern','best-practice','helper','reference','guide']
+//   },
+//   {
+//     name: 'WebGIS 应用',
+//     nameEn: 'WebGIS Applications',
+//     emoji: '🗺️',
+//     description: '在线地图与地理信息应用',
+//     descriptionEn: 'Web-based GIS applications',
+//     color: '#00AAFF',
+//     keywords: ['webgis','map','tiles','geoserver','vector','raster','wms','wfs','overlay','interaction']
+//   },
+//   {
+//     name: 'Cesium 三维地球',
+//     nameEn: 'CesiumJS 3D Globe',
+//     emoji: '🌍',
+//     description: '三维地球与三维可视化',
+//     descriptionEn: '3D globe visualization',
+//     color: '#2F80ED',
+//     keywords: ['cesium','3d','globe','terrain','tileset','gltf','czml','scene','viewer','visualization']
+//   },
+//   {
+//     name: '地理空间工具',
+//     nameEn: 'Geospatial Tools',
+//     emoji: '📌',
+//     description: '地理空间计算工具',
+//     descriptionEn: 'Geospatial utilities',
+//     color: '#26A69A',
+//     keywords: ['geospatial','coordinates','geodesy','wkt','wkb','tile','index','quadkey','parser','converter']
+//   },
+//   {
+//     name: 'GIS 工具',
+//     nameEn: 'GIS Applications & Tools',
+//     emoji: '🛰️',
+//     description: '地理信息系统工具',
+//     descriptionEn: 'General GIS tools',
+//     color: '#4B7BEC',
+//     keywords: ['gis','spatial','overlay','buffer','topology','projection','raster','vector','mapping','analysis']
+//   },
+//   {
+//     name: 'Leaflet 生态',
+//     nameEn: 'Leaflet Ecosystem',
+//     emoji: '🍃',
+//     description: 'Leaflet 插件与地图功能',
+//     descriptionEn: 'Leaflet plugins and tools',
+//     color: '#32CD32',
+//     keywords: ['leaflet','marker','popup','heatmap','cluster','tilelayer','control','draw','geojson','zoom']
+//   },
+//   {
+//     name: 'Mapbox 生态',
+//     nameEn: 'Mapbox Ecosystem',
+//     emoji: '🗺️✨',
+//     description: 'Mapbox 可视化生态',
+//     descriptionEn: 'Mapbox mapping ecosystem',
+//     color: '#3F51B5',
+//     keywords: ['mapbox','gl','style','vector-tiles','navigation','dataset','source','layer','camera','render']
+//   },
+//   {
+//     name: 'OpenLayers 生态',
+//     nameEn: 'OpenLayers Ecosystem',
+//     emoji: '🧭',
+//     description: '专业 WebGIS SDK',
+//     descriptionEn: 'Professional WebGIS SDK',
+//     color: '#009688',
+//     keywords: ['openlayers','projection','view','wms','wfs','vector','raster','render','interaction','tiles']
+//   },
+//   {
+//     name: '核密度估计',
+//     nameEn: 'Kernel Density Estimation',
+//     emoji: '🌋',
+//     description: '热点分析与密度估计',
+//     descriptionEn: 'Hotspot density estimation',
+//     color: '#C2185B',
+//     keywords: ['kde','density','hotspot','smoothing','bandwidth','gaussian','surface','probability','map','analysis']
+//   },
+//   {
+//     name: '空气质量建模',
+//     nameEn: 'Air Quality Modeling',
+//     emoji: '🌫️',
+//     description: '空气污染与暴露模拟',
+//     descriptionEn: 'Air pollution modeling',
+//     color: '#607D8B',
+//     keywords: ['air','pm25','pollution','exposure','dispersion','monitoring','modeling','health','urban','mapping']
+//   },
+//   {
+//     name: '水文与流域建模',
+//     nameEn: 'Hydrology & Watershed Modeling',
+//     emoji: '💧',
+//     description: '流域与径流模拟',
+//     descriptionEn: 'Hydrology and watershed modeling',
+//     color: '#00BCD4',
+//     keywords: ['hydrology','runoff','streamflow','watershed','flood','routing','discharge','groundwater','model','simulation']
+//   },
+//   {
+//     name: '气候建模与分析',
+//     nameEn: 'Climate Modeling & Analysis',
+//     emoji: '🌍🌡️',
+//     description: '气候变化模拟与评估',
+//     descriptionEn: 'Climate modeling and analysis',
+//     color: '#FF5722',
+//     keywords: ['climate','cmip','scenario','projection','trend','variability','downscaling','dataset','model','analysis']
+//   },
+//   {
+//     name: '天气预报与短临',
+//     nameEn: 'Weather Forecasting & Nowcasting',
+//     emoji: '🌦️',
+//     description: '天气监测与预测',
+//     descriptionEn: 'Weather prediction and monitoring',
+//     color: '#42A5F5',
+//     keywords: ['weather','forecast','nowcasting','radar','satellite','storm','wind','humidity','prediction','monitoring']
+//   },
+//   {
+//     name: 'Qt 桌面应用',
+//     nameEn: 'Qt GUI Applications',
+//     emoji: '🖱️',
+//     description: '跨平台桌面界面开发',
+//     descriptionEn: 'Cross-platform GUI development',
+//     color: '#009688',
+//     keywords: ['qt','gui','widgets','qml','desktop','app','pyside','pyqt','layout','designer']
+//   },
+//   {
+//     name: '地理探测器',
+//     nameEn: 'GeoDetector Models',
+//     emoji: '🧭📊',
+//     description: '空间异质性驱动检测',
+//     descriptionEn: 'Spatial heterogeneity detection',
+//     color: '#795548',
+//     keywords: ['geodetector','heterogeneity','interaction','driver','risk','zoning','pattern','variance','analysis','mapping']
+//   },
+//   {
+//     name: '克里金插值',
+//     nameEn: 'Kriging Spatial Interpolation',
+//     emoji: '🗺️📈',
+//     description: '地统计插值分析',
+//     descriptionEn: 'Geostatistical interpolation',
+//     color: '#8BC34A',
+//     keywords: ['kriging','interpolation','variogram','prediction','surface','geostatistics','grid','fit','model','error']
+//   },
+//   {
+//     name: '交通建模与分析',
+//     nameEn: 'Traffic Modeling & Analysis',
+//     emoji: '🚗📉',
+//     description: '交通流量与拥堵分析',
+//     descriptionEn: 'Traffic and mobility modeling',
+//     color: '#FF9800',
+//     keywords: ['traffic','flow','congestion','mobility','gps','trajectory','network','assignment','transport','demand']
+//   },
+//   {
+//     name: '地理加权回归',
+//     nameEn: 'Geographically Weighted Regression',
+//     emoji: '🧮🌏',
+//     description: '空间异质性回归模型',
+//     descriptionEn: 'Spatial regression with heterogeneity',
+//     color: '#673AB7',
+//     keywords: ['gwr','regression','local','spatial','kernel','bandwidth','diagnostics','residual','predict','mapping']
+//   },
+//   {
+//     name: 'AERMOD 扩散模型',
+//     nameEn: 'AERMOD Dispersion Modeling',
+//     emoji: '🌬️',
+//     description: '污染扩散模拟',
+//     descriptionEn: 'Regulatory dispersion modeling',
+//     color: '#9E9E9E',
+//     keywords: ['aermod','dispersion','plume','emission','receptor','terrain','regulatory','simulation','compliance','air']
+//   },
+//   {
+//     name: 'WRF 数值模式',
+//     nameEn: 'WRF Atmospheric Modeling',
+//     emoji: '☁️',
+//     description: '区域数值天气模式',
+//     descriptionEn: 'WRF atmospheric modeling',
+//     color: '#5C6BC0',
+//     keywords: ['wrf','mesoscale','forecast','physics','assimilation','domain','nesting','simulation','climate','reanalysis']
+//   },
+//   {
+//     name: 'Web 开发',
+//     nameEn: 'Web Development',
+//     emoji: '🌐',
+//     description: '前端、后端、全栈 Web 应用和框架',
+//     descriptionEn: 'Frontend, backend, full-stack web applications and frameworks',
+//     color: '#42b883',
+//     keywords: ['web', 'frontend', 'backend', 'react', 'vue', 'angular', 'svelte', 'next', 'nuxt', 'express', 'koa', 'fastify', 'nestjs']
+//   },
+//   {
+//     name: '移动开发',
+//     nameEn: 'Mobile Development',
+//     emoji: '📱',
+//     description: 'iOS、Android、跨平台移动应用',
+//     descriptionEn: 'iOS, Android, cross-platform mobile applications',
+//     color: '#34a853',
+//     keywords: ['mobile', 'android', 'ios', 'react-native', 'flutter', 'swift', 'kotlin', 'xamarin']
+//   },
+//   {
+//     name: '数据科学',
+//     nameEn: 'Data Science',
+//     emoji: '🤖',
+//     description: '机器学习、深度学习、数据分析',
+//     descriptionEn: 'Machine learning, deep learning, data analytics',
+//     color: '#ff9800',
+//     keywords: ['machine-learning', 'ml', 'ai', 'deep-learning', 'tensorflow', 'pytorch', 'pandas', 'numpy', 'data', 'analytics']
+//   },
+//   {
+//     name: '工具库',
+//     nameEn: 'Tools & Libraries',
+//     emoji: '🛠️',
+//     description: '通用工具、库、框架',
+//     descriptionEn: 'General tools, libraries, frameworks',
+//     color: '#9c27b0',
+//     keywords: ['library', 'framework', 'util', 'helper', 'tool', 'sdk', 'api']
+//   },
+//   {
+//     name: '数据库',
+//     nameEn: 'Database',
+//     emoji: '💾',
+//     description: '数据库系统、ORM、数据存储',
+//     descriptionEn: 'Database systems, ORM, data storage',
+//     color: '#ff5722',
+//     keywords: ['database', 'sql', 'nosql', 'mongodb', 'postgres', 'mysql', 'redis', 'orm', 'prisma']
+//   },
+//   {
+//     name: 'Awesome',
+//     nameEn: 'Awesome',
+//     emoji: '😎',
+//     description: '精选资源列表',
+//     descriptionEn: 'Curated resource lists',
+//     color: '#ff6b6b',
+//     keywords: ['awesome', 'curated', 'list', 'resources', 'collection']
+//   }
+  
+// ];
+
+
 export const DEFAULT_CATEGORIES: CategoryPreset[] = [
   {
     name: 'Web 开发',

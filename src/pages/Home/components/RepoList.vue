@@ -43,6 +43,33 @@
           {{ selectedRepos.size > 0 ? t('common.cancel') : t('common.exit') }}
         </el-button>
       </div>
+      <div class="header-actions" v-if="!selectMode">
+        <el-dropdown @command="handleSortChange" trigger="click">
+          <el-button size="small" text>
+            <el-icon><Sort /></el-icon>
+            <span style="margin-left: 4px;">{{ sortLabel }}</span>
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="updated" :class="{ 'is-active': sortBy === 'updated' }">
+                <el-icon><Clock /></el-icon>
+                <span>按更新时间</span>
+                <el-icon v-if="sortBy === 'updated'" class="check-icon"><Check /></el-icon>
+              </el-dropdown-item>
+              <el-dropdown-item command="stars" :class="{ 'is-active': sortBy === 'stars' }">
+                <el-icon><Star /></el-icon>
+                <span>按星标数</span>
+                <el-icon v-if="sortBy === 'stars'" class="check-icon"><Check /></el-icon>
+              </el-dropdown-item>
+              <el-dropdown-item command="created" :class="{ 'is-active': sortBy === 'created' }">
+                <el-icon><Calendar /></el-icon>
+                <span>按创建时间</span>
+                <el-icon v-if="sortBy === 'created'" class="check-icon"><Check /></el-icon>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </div>
     <div class="repo-list-content">
       <div v-if="loading" class="loading-container">
@@ -60,7 +87,7 @@
       </div>
       <div v-else class="repo-items">
         <RepoCard
-          v-for="repo in repos"
+          v-for="repo in sortedRepos"
           :key="`repo-${repo.id}`"
           :repo="repo"
           :isActive="activeRepo?.id === repo.id"
@@ -104,7 +131,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import RepoCard from './RepoCard.vue'
 import BatchTagDialog from './BatchTagDialog.vue'
 import type { Repository } from '@/types'
-import { Box, Collection, Close, Check } from '@element-plus/icons-vue'
+import { Box, Collection, Close, Check, Sort, Clock, Star, Calendar } from '@element-plus/icons-vue'
 
 const props = defineProps<{
   repos: Repository[]
@@ -126,6 +153,40 @@ const tagStore = useTagStore()
 const selectedRepos = ref<Set<number>>(new Set())
 const selectMode = ref(false)
 const showBatchTagDialog = ref(false)
+
+// 排序相关
+const sortBy = ref<'updated' | 'stars' | 'created'>('updated')
+
+const sortLabel = computed(() => {
+  switch (sortBy.value) {
+    case 'updated':
+      return '按更新时间'
+    case 'stars':
+      return '按星标数'
+    case 'created':
+      return '按创建时间'
+    default:
+      return '排序'
+  }
+})
+
+const handleSortChange = (command: 'updated' | 'stars' | 'created') => {
+  sortBy.value = command
+}
+
+const sortedRepos = computed(() => {
+  const reposCopy = [...props.repos]
+  
+  switch (sortBy.value) {
+    case 'stars':
+      return reposCopy.sort((a, b) => b.stargazers_count - a.stargazers_count)
+    case 'created':
+      return reposCopy.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+    case 'updated':
+    default:
+      return reposCopy.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+  }
+})
 
 const selectAll = computed({
   get: () => props.repos.length > 0 && selectedRepos.value.size === props.repos.length,
@@ -598,6 +659,22 @@ const handleSizeChange = (size: number) => {
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
+}
+
+:deep(.el-dropdown-menu__item) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &.is-active {
+    color: var(--el-color-primary);
+    font-weight: 500;
+  }
+  
+  .check-icon {
+    margin-left: auto;
+    color: var(--el-color-primary);
+  }
 }
 </style>
 

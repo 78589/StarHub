@@ -6,18 +6,26 @@
       </template>
       <template #main>
         <div class="home-content">
-          <RepoList
-            :repos="filteredRepos"
-            :loading="loading"
-            :syncing="syncing"
-            :activeRepo="selectedRepo"
-            @repo-click="handleRepoClick"
-          />
-          <DetailView
+          <div class="repo-list-wrapper" :style="{ width: repoListWidth + 'px' }">
+            <RepoList
+              :repos="filteredRepos"
+              :loading="loading"
+              :syncing="syncing"
+              :activeRepo="selectedRepo"
+              @repo-click="handleRepoClick"
+            />
+          </div>
+          <div 
             v-if="selectedRepo"
-            :repo="selectedRepo"
-            @close="handleCloseDetail"
-          />
+            class="content-resize-handle"
+            @mousedown="startContentResize"
+          ></div>
+          <div class="detail-wrapper" v-if="selectedRepo">
+            <DetailView
+              :repo="selectedRepo"
+              @close="handleCloseDetail"
+            />
+          </div>
           <EmptyState v-else />
         </div>
       </template>
@@ -44,6 +52,32 @@ const selectedRepo = ref<Repository | null>(null)
 const filteredRepos = computed(() => repoStore.filteredRepos)
 const loading = computed(() => repoStore.isFetching)
 const syncing = computed(() => repoStore.isSyncing)
+
+// 内容区宽度调整
+const repoListWidth = ref(480)
+const isContentResizing = ref(false)
+
+const startContentResize = (e: MouseEvent) => {
+  isContentResizing.value = true
+  document.addEventListener('mousemove', handleContentResize)
+  document.addEventListener('mouseup', stopContentResize)
+  e.preventDefault()
+}
+
+const handleContentResize = (e: MouseEvent) => {
+  if (!isContentResizing.value) return
+  const newWidth = e.clientX - (document.querySelector('.layout-sidebar') as HTMLElement)?.offsetWidth - 4 // 减去侧边栏宽度和拖���条宽度
+  // 限制最小宽度 400px，最大宽度 800px
+  if (newWidth >= 400 && newWidth <= 800) {
+    repoListWidth.value = newWidth
+  }
+}
+
+const stopContentResize = () => {
+  isContentResizing.value = false
+  document.removeEventListener('mousemove', handleContentResize)
+  document.removeEventListener('mouseup', stopContentResize)
+}
 
 const handleRepoClick = (repo: Repository) => {
   selectedRepo.value = repo
@@ -81,6 +115,58 @@ onMounted(async () => {
   display: flex;
   height: 100%;
   position: relative;
+}
+
+.repo-list-wrapper {
+  min-width: 400px;
+  max-width: 800px;
+  height: 100%;
+  flex-shrink: 0;
+  
+  :deep(.repo-list) {
+    width: 100%;
+    border-right: none;
+  }
+}
+
+.content-resize-handle {
+  width: 4px;
+  background: var(--border);
+  cursor: col-resize;
+  flex-shrink: 0;
+  transition: background-color $transition-base;
+  position: relative;
+
+  &:hover {
+    background: var(--el-color-primary);
+  }
+
+  &:active {
+    background: var(--el-color-primary);
+  }
+
+  // 深色模式下的样式
+  [data-theme='dark'] & {
+    background: rgba(96, 165, 250, 0.2);
+    
+    &:hover {
+      background: rgba(96, 165, 250, 0.5);
+    }
+    
+    &:active {
+      background: rgba(96, 165, 250, 0.7);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.detail-wrapper {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
 }
 </style>
 

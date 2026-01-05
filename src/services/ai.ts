@@ -130,10 +130,7 @@ export async function classifyRepositories(
   try {
     const { useTagStore } = await import('@/stores/tag')
     const tagStore = useTagStore()
-    existingCategories = tagStore.tags.map((t: any) => {
-      // 只返回分类名称，不包含描述
-      return t.name.split(' - ')[0] || t.name
-    })
+    existingCategories = tagStore.tags.map((t: any) => t.name)
     console.log('现有分类:', existingCategories)
   } catch (e) {
     console.warn('无法获取现有分类:', e)
@@ -221,7 +218,7 @@ async function classifyBatch(
   existingCategories: string[] = []
 ): Promise<Map<string, number[]>> {
 
-  // 从预设配置获取分类列表
+  // 从用户设置中获取当前的分类预设（而不是默认配置）
   const { getCategoryPresets } = await import('@/config/categories')
   const presets = getCategoryPresets()
   
@@ -229,7 +226,7 @@ async function classifyBatch(
   const currentLang = localStorage.getItem('app-language') || localStorage.getItem('app-locale') || 'zh'
   const isZh = currentLang === 'zh' || currentLang === 'zh-CN'
   
-  // 构建分类列表（预设 + 用户自定义）
+  // 构建分类列表：使用用户当前设置的预设分类
   // 根据当前语言显示对应的名称和描述
   const presetCategories = presets.map(p => {
     const name = isZh ? p.name : (p.nameEn || p.name)
@@ -238,15 +235,13 @@ async function classifyBatch(
     return description ? `${emoji}${name} - ${description}` : `${emoji}${name}`
   })
   
-  // 合并用户通过 UI 创建的分类
-  const userCategories = existingCategories.filter(cat => 
-    !presetCategories.some(preset => {
-      // 移除 emoji 后比较
-      const cleanPreset = preset.replace(/^[\u{1F300}-\u{1F9FF}]+\s*/u, '').split(' - ')[0]
-      return cleanPreset === cat || preset.includes(cat)
-    })
-  )
+  // 获取预设分类的纯名称列表（用于去重）
+  const presetNames = presets.map(p => p.name)
   
+  // 合并用户通过 UI 创建的额外分类（不在预设中的）
+  const userCategories = existingCategories.filter(cat => !presetNames.includes(cat))
+  
+  // 最终分类列表：用户额外创建的分类 + 预设分类
   const allCategories = [...userCategories, ...presetCategories]
   const categoryList = allCategories.map((cat, idx) => `${idx + 1}. ${cat}`).join('\n')
   

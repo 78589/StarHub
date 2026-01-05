@@ -217,7 +217,12 @@ const isClassifying = ref(false)
 const shouldStopClassifying = ref(false) // 停止分类标志
 const classifyNotificationHandle = ref<any>(null) // 当前分类通知句柄
 
-const tags = computed(() => tagStore.tags)
+const tags = computed(() => {
+  // 按名称字母顺序排序
+  return [...tagStore.tags].sort((a, b) => {
+    return a.name.localeCompare(b.name, 'zh-CN')
+  })
+})
 const languages = computed(() => repoStore.languages)
 
 // Calculate language counts
@@ -697,9 +702,9 @@ const handleAutoClassify = async (reclassifyAll = false) => {
             const emoji = presetInfo?.emoji
             const color = presetInfo?.color || CATEGORY_COLORS[cleanCategoryName] || CATEGORY_COLORS[categoryName] || '#9e9e9e'
             
-            // 检查分类是否已存在（匹配名称）
+            // 检查分类是否已存在（精确匹配名称）
             let existingTag = tagStore.tags.find((t: any) => 
-              t.name === cleanCategoryName || t.name === categoryName || t.name.startsWith(cleanCategoryName)
+              t.name === cleanCategoryName || t.name === categoryName
             )
             
             if (existingTag) {
@@ -751,38 +756,9 @@ const handleAutoClassify = async (reclassifyAll = false) => {
         batchSize // 传递批次大小参数
       )
       
-      // 如果 classifyRepositories 返回了结果，也合并到总映射
-      if (batchCategoryMap) {
-        for (const [categoryName, repoIds] of batchCategoryMap.entries()) {
-          if (repoIds.length === 0) continue
-          // 移除描述和 emoji
-          let cleanCategoryName = categoryName.split(' - ')[0].trim()
-          cleanCategoryName = cleanCategoryName.replace(/^[\u{1F300}-\u{1F9FF}]+\s*/u, '').trim()
-          
-          // 从预设分类中查找对应的 emoji 和颜色
-          const presetInfo = presetMap.get(cleanCategoryName) || presetMap.get(categoryName)
-          const emoji = presetInfo?.emoji
-          const color = presetInfo?.color || CATEGORY_COLORS[cleanCategoryName] || CATEGORY_COLORS[categoryName] || '#9e9e9e'
-          
-          // 检查分类是否已存在
-          let existingTag = tagStore.tags.find((t: any) => 
-            t.name === cleanCategoryName || t.name === categoryName || t.name.startsWith(cleanCategoryName)
-          )
-          
-          if (!existingTag) {
-            // 创建新分类（包含 emoji）
-            const newTag = await tagStore.createTag(cleanCategoryName, color, emoji)
-            await tagStore.updateTag(newTag.id, {
-              repos: repoIds
-            })
-          }
-          
-          if (!allCategoryMap.has(cleanCategoryName)) {
-            allCategoryMap.set(cleanCategoryName, [])
-          }
-          allCategoryMap.get(cleanCategoryName)!.push(...repoIds)
-        }
-      }
+      // 注意：批次完成回调已经处理了所有分类的创建和更新
+      // 这里的 batchCategoryMap 返回值实际上已经被处理过了
+      // 不需要再次处理，否则会导致重复创建标签
       
       // 批次完成后更新总体进度
       if (classifyNotificationHandle.value) {
