@@ -15,17 +15,11 @@
 
     <TextView
         android:id="@+id/widget_rec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
         android:layout_gravity="bottom|end"
-        android:background="#CCB00020"
-        android:paddingLeft="5dp"
-        android:paddingTop="2dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="2dp"
-        android:text="REC"
-        android:textColor="#FFFFFFFF"
-        android:textSize="10sp"
-        android:textStyle="bold"
+        android:layout_margin="7dp"
+        android:background="@drawable/widget_rec_dot"
+        android:text=""
         android:visibility="gone" />
 </FrameLayout>
