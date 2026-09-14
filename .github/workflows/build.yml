@@ -3,7 +3,7 @@ name: Build APK
 on:
   workflow_dispatch:
   push:
-    branches: [ a34cam50-build ]
+    branches: [ a34cam50-build, a34cam50-widget ]
 
 jobs:
   build:
@@ -21,5 +21,5 @@ jobs:
         run: gradle :app:assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
-          name: A34Cam50-debug-apk
+          name: A34Cam50-widget-apk
           path: app/build/outputs/apk/debug/app-debug.apk
